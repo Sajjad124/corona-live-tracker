@@ -20,14 +20,22 @@ import { fetchData } from "./Api/index";
 import React from "react";
 
 class App extends React.Component {
+  // const [Data, setDate] = useState(data);
+
+  state = {
+    data: {},
+  };
+
   async componentDidMount() {
-    const data = await fetchData();
-    console.log(data);
+    const fetchedData = await fetchData();
+    // console.log(fetchedData);
+    this.setState({ data: fetchedData });
   }
   render() {
+    const {data} = this.state;
     return (
       <div className="container">
-        <Cards />
+        <Cards data={data} />
         <Chart />
         <CountryPicker />
       </div>
