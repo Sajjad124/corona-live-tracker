@@ -32,7 +32,7 @@ class App extends React.Component {
     this.setState({ data: fetchedData });
   }
   render() {
-    const {data} = this.state;
+    const { data } = this.state;
     return (
       <div className="container">
         <Cards data={data} />
