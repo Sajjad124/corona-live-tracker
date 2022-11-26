@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardContent, Typography, Grid } from "@mui/material";
-import "./Cards.module.css";
+import styles from "./Cards.module.css";
+import cx from "classnames";
 import CountUp from "react-countup";
 
 const Cards = ({data:{confirmed, recovered, deaths, lastUpdate}}) => {
@@ -14,9 +15,9 @@ if(!confirmed){
   return (
     <div className="container">
       <Grid container spacing={3} justifyContent="center">
-        <Grid item component={Card}>
+        <Grid item component={Card} xs={12} md={3}   className={cx(styles.card, styles.positive)}>
           <CardContent> 
-            <Typography color="textSecondary" gutterBottom> Positive Cases </Typography>
+            <Typography color="textSecondary" gutterBottom> Positive </Typography>
             <Typography variant="h5">
                 <CountUp start={0} end={confirmed.value} duration={2.5} separator={","}/>
             </Typography>
@@ -24,7 +25,7 @@ if(!confirmed){
             <Typography variant="body2"> No. of active cases of COVID-19 </Typography>
           </CardContent>
         </Grid>
-        <Grid item component={Card}>
+        <Grid item component={Card} xs={12} md={3}   className={cx(styles.card, styles.recovered)}>
           <CardContent>
             <Typography color="textSecondary" gutterBottom> Recovered Cases </Typography>
             <Typography variant="h5">
@@ -34,7 +35,7 @@ if(!confirmed){
             <Typography variant="body2"> No. of recoveries of COVID-19 </Typography>
           </CardContent>
         </Grid>
-        <Grid item component={Card}>
+        <Grid item component={Card} xs={12} md={3}   className={cx(styles.card, styles.deaths)}>
           <CardContent>
             <Typography color="textSecondary" gutterBottom> Deaths </Typography>
             <Typography variant="h5">
@@ -45,6 +46,9 @@ if(!confirmed){
           </CardContent>
         </Grid>
       </Grid>
+
+
+      
     </div>
   );
 };
