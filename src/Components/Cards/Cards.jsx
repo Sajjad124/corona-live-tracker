@@ -13,7 +13,7 @@ if(!confirmed){
     return 'Loading...';
 }
   return (
-    <div className="container" style={{margin:"marginTop: 50px 0;"}}>
+    <div className="container" >
       <Grid container spacing={3} justifyContent="center">
         <Grid item component={Card} xs={12} md={3}   className={cx(styles.card, styles.positive)}>
           <CardContent> 
