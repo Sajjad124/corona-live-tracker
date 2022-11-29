@@ -1,30 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { NativeSelect, FormControl } from "@mui/material";
 import styles from "../CountryPicker/CountryPicker.module.css";
-import { countries } from "../../Api";
+import { fetchCountries } from "../../Api";
 
 const CountryPicker = () => {
-  const { fetchedCountries, setFetchedCountries } = useState([]);
+  const [fetchedCountries, setFetchedCountries] = useState([]);
 
   useEffect(() => {
-    const fetchCountries = async () => {
-      setFetchedCountries(await countries());
+    const fetchApi = async () => {
+      setFetchedCountries(await fetchCountries());
     };
-    fetchCountries();
-  }, [setFetchedCountries]);
-
+    fetchApi();
+  }, [[setFetchedCountries]]);
+  console.log(fetchedCountries, "Sajjad");
   return (
     <FormControl className={styles.FormControl}>
       <NativeSelect>
         <option value="global">Global</option>
-        <option value="global">Global</option>
-        <option value="global">Global</option>
-        <option value="global">Global</option>
-        <option value="global">Global</option>
-        <option value="global">Global</option>
-        <option value="global">Global</option>
-        <option value="global">Global</option>
-        <option value="global">Global</option>
+        {fetchedCountries.map((country, i) => (
+          <option value={country} key={i}>
+            {country}
+          </option>
+        ))}
       </NativeSelect>
     </FormControl>
   );
