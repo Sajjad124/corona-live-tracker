@@ -26,5 +26,16 @@ export const fetchDailyData = async () => {
       date: dailyData.reportDate,
     }));
     return modifiedData;
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const countries = async () => {
+  try {
+    const response = await axios.get(`${url}/countries`);
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
 };
