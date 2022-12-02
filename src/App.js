@@ -18,6 +18,7 @@ import CountryPicker from "./Components/CountryPicker/CountryPicker";
 import Cards from "./Components/Cards/Cards";
 import { fetchDailyData, fetchData } from "./Api/index";
 import React from "react";
+import { Box, Typography } from "@mui/material";
 
 class App extends React.Component {
   // const [Data, setDate] = useState(data);
@@ -43,11 +44,33 @@ class App extends React.Component {
   render() {
     const { data } = this.state;
     return (
-      <div className="container">
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+          padding: "40px",
+        }}
+      >
         <Cards data={data} />
+        <Typography
+          variant="h4"
+          sx={{
+            display: {
+              xs: "block",
+              sm: "block",
+              fontSize: "18px",
+              marginTop: "10px",
+            },
+            // boxShadow: "1px 1px 1px 1px rgba(0, 0, 0, 0.1)",
+          }}
+        >
+          Covid19 Live-Tracker App
+        </Typography>
         <CountryPicker handleCountryChange={this.handleCountryChange} />
         <Chart />
-      </div>
+      </Box>
     );
   }
 }
