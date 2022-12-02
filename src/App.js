@@ -38,6 +38,7 @@ class App extends React.Component {
     console.log(fetchedData);
     // console.log(country);
     //set state
+    this.setState({ data: fetchedData, country: country });
   };
   render() {
     const { data } = this.state;
