@@ -51,23 +51,26 @@ class App extends React.Component {
           alignItems: "center",
           flexDirection: "column",
           padding: "40px",
+          height: "100vh",
+          boxShadow: "2px 3px 5px 2px rgba(0, 0, 0, 0.3)",
         }}
       >
         <Cards data={data} />
-        <Typography
+        {/* <Typography
           variant="h4"
           sx={{
+            marginTop: "40px",
             display: {
               xs: "block",
               sm: "block",
               fontSize: "18px",
-              marginTop: "10px",
+              // marginTop: "40px",
             },
             // boxShadow: "1px 1px 1px 1px rgba(0, 0, 0, 0.1)",
           }}
         >
           Covid19 Live-Tracker App
-        </Typography>
+        </Typography> */}
         <CountryPicker handleCountryChange={this.handleCountryChange} />
         <Chart />
       </Box>
