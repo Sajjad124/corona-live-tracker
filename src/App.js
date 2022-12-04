@@ -37,7 +37,7 @@ class App extends React.Component {
     //fetch data
     const fetchedData = await fetchData(country);
     console.log(fetchedData);
-    // console.log(country);
+    
     //set state
     this.setState({ data: fetchedData, country: country });
   };
@@ -56,21 +56,7 @@ class App extends React.Component {
         }}
       >
         <Cards data={data} />
-        {/* <Typography
-          variant="h4"
-          sx={{
-            marginTop: "40px",
-            display: {
-              xs: "block",
-              sm: "block",
-              fontSize: "18px",
-              // marginTop: "40px",
-            },
-            // boxShadow: "1px 1px 1px 1px rgba(0, 0, 0, 0.1)",
-          }}
-        >
-          Covid19 Live-Tracker App
-        </Typography> */}
+        
         <CountryPicker handleCountryChange={this.handleCountryChange} />
         <Chart />
       </Box>
