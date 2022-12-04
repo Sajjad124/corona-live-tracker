@@ -56,7 +56,6 @@ class App extends React.Component {
         }}
       >
         <Cards data={data} />
-        
         <CountryPicker handleCountryChange={this.handleCountryChange} />
         <Chart />
       </Box>
